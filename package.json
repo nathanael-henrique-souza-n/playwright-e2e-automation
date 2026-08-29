@@ -1,0 +1,14 @@
+{
+  "name": "playwright-e2e-automation",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/bun": "latest",
+    "@types/node": "^26.4.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {}
+}
