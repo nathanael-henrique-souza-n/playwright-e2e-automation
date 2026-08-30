@@ -8,9 +8,9 @@
 **And** they has at least one product in the cart
 **And** they is on the checkout page
 **When** they fill in valid shipping address and payment details
+**And** Choose payment form
 **And** confirm the order
-**Then** the order should be placed successfully
-**And** the message "Your order has been successfully processed!" should be displayed
+**Then** the message "Your order has been successfully processed!" should be displayed
 
 # ==============================================
 

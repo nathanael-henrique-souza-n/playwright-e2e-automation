@@ -10,7 +10,7 @@
 **When** they select a product and click the "Add to Cart" button
 **And** the product is available
 **Then** the product should be added to the cart successfully
-**And** the message "Product added to cart" should be displayed
+**And** the message "The product has been added to your shopping cart" should be displayed
 
 ### BR-002 - Increase the quantity of a product in the cart
 
