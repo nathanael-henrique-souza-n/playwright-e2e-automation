@@ -11,6 +11,12 @@ export function checkoutFactory(overrider: Partial<checkout> = {}) {
     Zip_postalCode: faker.location.zipCode(),
     PhoneNumber: faker.phone.number(),
     faxNumber: faker.phone.number(),
+
+    shipping_method: faker.helpers.arrayElement([
+      "Ground ($0.00)",
+      "Next Day Air ($0.00)",
+      "2nd Day Air ($0.00)",
+    ]),
     ...overrider,
   };
 }
