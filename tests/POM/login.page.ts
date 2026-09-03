@@ -1,6 +1,6 @@
-import { Page } from "@playwright/test";
+import type { Page } from "@playwright/test";
 
-import { user_login } from "../interfaces/user.login.interface";
+import type { user_login } from "../interfaces/user.login.interface";
 
 class LoginPage {
   constructor(private page: Page) {}
