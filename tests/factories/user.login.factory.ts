@@ -3,8 +3,8 @@ import validUserLogin from "../fixtures/users.json";
 
 export function userLogin(overrider: Partial<user_login> = {}) {
   return {
-    email: validUserLogin.validUser.email,
-    password: validUserLogin.validUser.password,
+    email: validUserLogin.login.email,
+    password: validUserLogin.login.password,
     ...overrider,
   };
 }
