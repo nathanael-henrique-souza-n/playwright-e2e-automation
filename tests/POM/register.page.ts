@@ -1,8 +1,9 @@
-import { Page, expect } from "@playwright/test";
+import type { Page } from "@playwright/test";
+import { expect } from "@playwright/test";
 
-import { user_register } from "../interfaces/user.register.interfaces";
+import type { user_register } from "../interfaces/user.register.interfaces";
 
-class name {
+class registerPage {
   constructor(private page: Page) {}
 
   async register(User: user_register) {
