@@ -1,6 +1,7 @@
-import { Page, expect } from "@playwright/test";
+import type { Page } from "@playwright/test";
+import { expect } from "@playwright/test";
 
-import { checkout } from "../interfaces/checkout.interface";
+import type { checkout } from "../interfaces/checkout.interface";
 
 class CheckoutPage {
   constructor(private page: Page) {}
@@ -37,5 +38,7 @@ class CheckoutPage {
     await this.page
       .locator("input[BillingNewAddress_FaxNumber]")
       .fill(Checkout.faxNumber.toString());
+
+    await this.page.locator(".method-list");
   }
 }
