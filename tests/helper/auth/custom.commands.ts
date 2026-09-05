@@ -1,7 +1,7 @@
 import type { Page } from "@playwright/test";
 import { expect } from "@playwright/test";
 
-import user from "../../fixtures/users.json";
+import user from "../../fixtures/users.json" with { type: "json" };
 
 type registerResult = "registered" | "email-exists";
 type LoginResult = "logged" | "account-not-found";
@@ -34,6 +34,8 @@ export async function register(page: Page): Promise<registerResult> {
     await expect(page.locator(".ico-logout")).toBeVisible();
     return "registered";
   }
+
+  await page.locator(".ico-logout").click();
 }
 
 export async function login(page: Page): Promise<LoginResult> {
