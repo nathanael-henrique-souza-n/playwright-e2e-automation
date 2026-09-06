@@ -1,19 +1,5 @@
 {
-  "login": {
-    "email": "nathanaeltest@gmail.com",
-    "password": "nathanaeltest@123"
-  },
-
-  "invalidLogin": {
-    "email": "abcde@gmal.com",
-    "password": "abcde@123"
-  },
-
-  "register": {
-    "first-name": "Nathanael",
-    "last-name": "Test",
-    "email": "nathanaeltest@gmail.com",
-    "companyName": "Test Company",
-    "Password": "nathanaeltest@123"
-  }
+  "name": "Nathanael SDET",
+  "email": "nathanael.sdet.automation@gmail.com",
+  "password": "Senha@123"
 }
