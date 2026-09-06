@@ -1,10 +1,10 @@
 import type { user_login } from "../interfaces/user.login.interface";
-import validUserLogin from "../fixtures/users.json";
+import { faker } from "@faker-js/faker";
 
 export function userLogin(overrider: Partial<user_login> = {}) {
   return {
-    email: validUserLogin.login.email,
-    password: validUserLogin.login.password,
+    email: faker.internet.email,
+    password: faker.internet.password,
     ...overrider,
   };
 }
