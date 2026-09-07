@@ -1,5 +1,4 @@
 import type { Page } from "@playwright/test";
-
 import type { user_login } from "../interfaces/user.login.interface";
 
 export class LoginPage {
