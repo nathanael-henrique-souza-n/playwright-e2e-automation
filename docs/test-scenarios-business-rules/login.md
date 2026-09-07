@@ -12,6 +12,8 @@
 
 # ==============================================
 
+## Negative scenarios
+
 BR-002 - User cannot log in with unregistered credentials
 
 **Given** the user is on the login page

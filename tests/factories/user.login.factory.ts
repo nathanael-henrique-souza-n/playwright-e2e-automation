@@ -3,8 +3,8 @@ import { faker } from "@faker-js/faker";
 
 export function userLogin(overrider: Partial<user_login> = {}) {
   return {
-    email: faker.internet.email,
-    password: faker.internet.password,
+    email: faker.internet.email(),
+    password: faker.internet.password(),
     ...overrider,
   };
 }
