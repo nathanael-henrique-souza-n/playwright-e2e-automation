@@ -1,12 +1,36 @@
 import { test, expect } from "@playwright/test";
-import { LoginPage } from "../POM/login.page";
 
-import user from "../fixtures/users.json" with { type: "json" };
+import { userLogin } from "../../factories/user.login.factory";
+import { login } from "../../helper/auth/login";
+import user from "../../fixtures/users.json" with { type: "json" };
 
 test.describe("Happy Path", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("/login");
+  });
+
   test.describe("Positive scenarios", () => {
     test("BR-001 - User should be able to login with valid credentials", async ({
       page,
-    }) => {});
+    }) => {
+      await login(page, user);
+
+      await expect(
+        await page.getByText(`Logged in as ${user.name}`),
+      ).toBeVisible();
+    });
+  });
+
+  test.describe("Negative scenarios", () => {
+    test("BR-002 - User cannot log in with unregistered credential", async ({
+      page,
+    }) => {
+      let unregisteredUser = userLogin();
+      await login(page, unregisteredUser);
+
+      await expect(
+        await page.getByText("Your email or password is incorrect!"),
+      ).toBeVisible();
+    });
   });
 });
