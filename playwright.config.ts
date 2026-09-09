@@ -35,6 +35,7 @@ export default defineConfig({
     headless: false, // Define para rodar vendo o navegador abrir
     launchOptions: {
       args: ["--disable-blink-features=AutomationControlled"], // Passa as flags do Chromium
+      slowMo: 500,
     },
   },
 
