@@ -1,24 +1,78 @@
 import type { Page } from "@playwright/test";
-import { expect } from "@playwright/test";
-
 import type { user_register } from "../interfaces/user.register.interfaces";
 
-export class registerPage {
+export class RegisterPage {
   constructor(private page: Page) {}
 
-  async register(User: user_register) {
-    await this.page.locator(`input[value="${User.title}"]`).check();
-    await expect(this.page.locator(".button-1.register-button")).toBeVisible();
-    await this.page.locator(".button-1.register-button").click();
+  async fillRegistrationForm(user: user_register, skipFields: string[] = []) {
+    if (!skipFields.includes("title")) {
+      await this.page
+        .locator(`input[name="title"][value="${user.title}"]`)
+        .check();
+    }
 
-    await this.page.locator('[inputid="FirstName"]').fill(User.firstName);
-    await this.page.locator('[inputid="LastName"]').fill(User.lastName);
-    await this.page.locator('[inputid="Email"]').fill(User.email);
-    await this.page.locator('input[id="Company"]').fill(User.company);
-    await this.page.locator('input[id="Password"]').fill(User.password);
-    await this.page.locator('input[id="ComfirmPassword"]').fill(User.password);
+    if (!skipFields.includes("password")) {
+      await this.page.locator('[data-qa="password"]').fill(user.password);
+    }
 
-    await expect(this.page.locator(".button-1.register-button")).toBeVisible();
-    await this.page.locator(".button-1.register-next-step-button").click();
+    if (!skipFields.includes("birthDay")) {
+      await this.page
+        .locator('[data-qa="days"]')
+        .selectOption(user.birthdata.day);
+    }
+
+    if (!skipFields.includes("birthMonth")) {
+      await this.page
+        .locator('[data-qa="months"]')
+        .selectOption(user.birthdata.month);
+    }
+
+    if (!skipFields.includes("birthYear")) {
+      await this.page
+        .locator('[data-qa="years"]')
+        .selectOption(user.birthdata.year);
+    }
+
+    if (!skipFields.includes("firstName")) {
+      await this.page.locator('[data-qa="first_name"]').fill(user.firstName);
+    }
+
+    if (!skipFields.includes("lastName")) {
+      await this.page.locator('[data-qa="last_name"]').fill(user.lastName);
+    }
+
+    if (!skipFields.includes("company")) {
+      await this.page.locator('[data-qa="company"]').fill(user.company);
+    }
+
+    if (!skipFields.includes("address")) {
+      await this.page.locator('[data-qa="address"]').fill(user.address);
+    }
+
+    if (!skipFields.includes("address2")) {
+      await this.page.locator('[data-qa="address2"]').fill(user.address2);
+    }
+
+    if (!skipFields.includes("country")) {
+      await this.page.locator('[data-qa="country"]').selectOption(user.country);
+    }
+
+    if (!skipFields.includes("state")) {
+      await this.page.locator('[data-qa="state"]').fill(user.state);
+    }
+
+    if (!skipFields.includes("city")) {
+      await this.page.locator('[data-qa="city"]').fill(user.city);
+    }
+
+    if (!skipFields.includes("zipCode")) {
+      await this.page.locator('[data-qa="zipcode"]').fill(user.zipCode);
+    }
+
+    if (!skipFields.includes("mobileNumber")) {
+      await this.page
+        .locator('[data-qa="mobile_number"]')
+        .fill(user.mobileNumber);
+    }
   }
 }
