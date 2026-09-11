@@ -74,5 +74,7 @@ export class RegisterPage {
         .locator('[data-qa="mobile_number"]')
         .fill(user.mobileNumber);
     }
+
+    await this.page.locator('[data-qa="create-account"]').click();
   }
 }
