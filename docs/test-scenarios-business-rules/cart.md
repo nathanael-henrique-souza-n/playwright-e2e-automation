@@ -36,7 +36,7 @@ BR-003 - The system should remove a product from the cart successfully
 **Then** the product should not be added to the cart
 **And** the browser should display a message indicating that the product is unavailable
 
-BR-005 - The system should not allow checkout when the user is not logged in
+### BR-005 - The system should not allow checkout when the user is not logged in
 
 **Given** the user has products in the shopping cart and is not authenticated
 **When** the user tries to proceed to checkout
